@@ -30,12 +30,14 @@ var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animal
 		    	gifDiv.prepend(p) 
 		    	$("#animalButtons").append(gifDiv)
             	$("#animalButtons").on("click", function(event) {
-            		for (var i = 0; i < results.length; i++){
-            		stillImage.attr("src", results[i].images.fixed_height.url);
-			    	gifDiv.append(stillImage)
-			    	gifDiv.prepend(p) 
-			    	$("#animalButtons").append(gifDiv)
-			    	}
+			        if (state === "still") {
+			        $(this).attr("src", $(this).attr("data-animate"));
+			        $(this).attr("data-state", "animate");
+			    	} 
+			    	else {
+			        $(this).attr("src", $(this).attr("data-still"));
+			        $(this).attr("data-state", "still");
+			      	}
       			});
 	    	}
 	    });
