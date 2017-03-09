@@ -4,7 +4,7 @@ var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animal
 
 // *********************************************************************
 // pulling from server
-$(document).ready(){
+
 	function displayGiphy(){
 		var gif = $(this).attr("data-name");
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -64,6 +64,9 @@ function renderButtons(){
 };
 // *********************************************************************
 // push buttons to array
+$(document).ready(function(){
+	
+$(document).on("click", ".gif", displayGiphy);
 
 	$("#add-gif").on("click",function(event) {
 		event.preventDefault();
@@ -72,7 +75,7 @@ function renderButtons(){
 		renderButtons();
 });
 
-$(document).on("click", ".gif", displayGiphy);
+
 
 renderButtons();
-}
+});
