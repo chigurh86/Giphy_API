@@ -23,24 +23,31 @@ var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animal
 	    		var gifDiv = $("<div class='item'>");
 		    	var rating = results[i].rating;
 		    	var stillImage = $("<img>");
-		    	var state = $(this).attr("data-state");
+		    	var animatedImage = $("<img>");
 		    	var p = $("<p>").text("Rating: "+ rating)
 		    	stillImage.attr("src", results[i].images.fixed_height_still.url);
-		    	gifDiv.append(stillImage)
-		    	gifDiv.prepend(p) 
-		    	$("#animalButtons").append(gifDiv)
-            	$("#animalButtons").on("click", function(event) {
-			        if (state === "still") {
-			        $(this).attr("src", $(this).attr("data-animate"));
-			        $(this).attr("data-state", "animate");
-			    	} 
-			    	else {
-			        $(this).attr("src", $(this).attr("data-still"));
-			        $(this).attr("data-state", "still");
-			      	}
-      			});
+		    	stillImage.attr("data-animate", results[i].images.fixed_height.url);
+		    	stillImage.attr("data-still", results[i].images.fixed_height_still.url);
+		    	stillImage.attr("data-state", "still");
+		    	gifDiv.append(stillImage);
+		    	gifDiv.prepend(p);
+		    	$("#animalButtons").append(gifDiv);
+            	
 	    	}
 	    });
+
+	    $(document).on("click", "img", function(event) {
+	    	// get state from the data state attribute
+	    	var state = $(this).attr("data-state");
+		        if (state === "still") {
+			        $(this).attr("src", $(this).attr("data-animate"));
+			        $(this).attr("data-state", "animate");
+		    	} 
+		    	else {
+			        $(this).attr("src", $(this).attr("data-still"));
+			        $(this).attr("data-state", "still");
+		      	}
+  			});
 	};
 
 	
