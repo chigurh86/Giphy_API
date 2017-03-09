@@ -1,9 +1,5 @@
+
 var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animals", "Halloween", "College", "Movies", "Games"];
-
-
-
-
-
 
 // *********************************************************************
 // pulling from server
@@ -53,7 +49,6 @@ var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animal
 	
 // *********************************************************************
 // loading buttons from array
-
 function renderButtons(){
 
 	$("#animalButtons").empty();
