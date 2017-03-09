@@ -1,9 +1,10 @@
 
+
 var buttonArray = ["Nature", "Trees", "Bicycles", "Ocean", "Surfboards", "Animals", "Halloween", "College", "Movies", "Games"];
 
 // *********************************************************************
 // pulling from server
-
+$(document).ready(){
 	function displayGiphy(){
 		var gif = $(this).attr("data-name");
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -74,3 +75,4 @@ function renderButtons(){
 $(document).on("click", ".gif", displayGiphy);
 
 renderButtons();
+}
