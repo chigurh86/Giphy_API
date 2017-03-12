@@ -69,6 +69,7 @@ $(document).ready(function(){
 $(document).on("click", ".gif", displayGiphy);
 
 	$("#add-gif").on("click",function(event) {
+		$(".item").empty();
 		event.preventDefault();
 		var gif = $("#gif-input").val().trim();
 		buttonArray.push(gif);
